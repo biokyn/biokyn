@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.0
+Fixed many security issues found in first version.
+
 ## 1.0.0
 First stable release. RFC 9497 ristretto255-SHA512 VOPRF verified against the official vectors, token v2, Argon2id proof-of-work, WebAuthn lane, Redis-backed stores, Express and Next.js adapters.
 
