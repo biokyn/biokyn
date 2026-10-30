@@ -1,7 +1,7 @@
 {
   "name": "biokyn",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "BioKyn — self-hosted, privacy-preserving bot mitigation (Argon2id PoW, RFC 9497 VOPRF, WebAuthn)",
   "license": "Apache-2.0",
   "type": "module",

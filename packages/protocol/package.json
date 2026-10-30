@@ -1,6 +1,6 @@
 {
   "name": "@biokyn/protocol",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "description": "BioKyn protocol: wire types, kinematics, Argon2id proof-of-work and RFC 9497 ristretto255 VOPRF primitives.",
   "license": "Apache-2.0",

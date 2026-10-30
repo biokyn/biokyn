@@ -1,6 +1,6 @@
 {
   "name": "@biokyn/core",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "BioKyn core compatibility and application primitives for bot mitigation, liveness, storage, and framework middleware.",
   "license": "Apache-2.0",
   "author": "NodeX-AR",
