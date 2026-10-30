@@ -1,4 +1,3 @@
-```yaml
 name: Auto Label Issues and PRs
 
 on:
@@ -153,4 +152,3 @@ jobs:
               `Applied labels to ${isPR ? "PR" : "issue"} #${number}: ` +
               [...selected].join(", ")
             );
-```
