@@ -1,3 +1,4 @@
+
 name: Auto Label Issues and PRs
 
 on:
@@ -19,14 +20,15 @@ permissions:
   contents: read
   issues: write
   pull-requests: write
-  
+
 jobs:
   label:
     runs-on: ubuntu-latest
 
     permissions:
-      pull-requests: read
+      contents: read
       issues: write
+      pull-requests: write
 
     steps:
       - name: Create and apply labels
@@ -126,7 +128,7 @@ jobs:
               selected.add("draft");
             }
 
-            // Ensure selected labels exist.
+            // Create missing labels and reuse existing ones.
             for (const label of labels) {
               if (!selected.has(label.name)) continue;
 
@@ -135,14 +137,29 @@ jobs:
                   ...context.repo,
                   ...label
                 });
+
+                core.info(`Created label: ${label.name}`);
               } catch (error) {
-                // GitHub returns 422 if the label already exists.
-                if (error.status !== 422) {
+                if (error.status === 422) {
+                  // A 422 can mean the label already exists.
+                  // Verify that before treating it as success.
+                  try {
+                    await github.rest.issues.getLabel({
+                      ...context.repo,
+                      name: label.name
+                    });
+
+                    core.info(`Reusing existing label: ${label.name}`);
+                  } catch (verifyError) {
+                    throw verifyError;
+                  }
+                } else {
                   throw error;
                 }
               }
             }
 
+            // Apply all selected labels.
             await github.rest.issues.addLabels({
               ...context.repo,
               issue_number: number,
