@@ -38,7 +38,7 @@
     "@noble/hashes": "^2.0.0"
   },
   "devDependencies": {
-    "@types/node": "^26.6.5",
+    "@types/node": "^26.6.6",
     "typescript": "^5.9.0",
     "vitest": "^2.1.0"
   },
